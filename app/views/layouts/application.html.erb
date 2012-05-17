@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stocks</title>
+  
+  <%= stylesheet_link_tag    "application" %>
+  
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag 'http://html5shim.googlecode.com/svn/trunk/html5.js' %>
+  <![endif]-->
+  <%= javascript_include_tag "application" %>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render '/shared/navigation' %>
+
+<div class="container">
+  <%= render '/shared/notifications' %>
+
+  <%= yield %>
+  
+  <%= render '/shared/footer' %>
+</div><!--// .container -->
+
+</body>
+</html>
