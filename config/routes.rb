@@ -1,4 +1,6 @@
 Stocks::Application.routes.draw do
+  resources :companies
+
   get "welcome/index"
 
   # The priority is based upon order of creation:

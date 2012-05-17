@@ -1,0 +1,16 @@
+<div class="page-header">
+  <div class="btn-group pull-right">
+    <%= link_to edit_company_path(@company), class: 'btn btn-warning' do %>
+      <i class="icon-edit icon-white"></i>
+      Edit
+    <% end %>
+    <%= link_to companies_path, class: 'btn' do %>
+      <i class="icon-th-list"></i>
+      All Companies
+    <% end %>
+  </div><!--// .btn-group -->
+  
+  <h1><%= @company.name %> <small><%= @company.ticker.upcase %></small></h1>
+</div><!--// .page-header -->
+
+<p>Financial statements go here</p>
