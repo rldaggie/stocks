@@ -1,7 +1,7 @@
 require 'open-uri'
 
 module Extensions
-  module CompanyDetails
+  module FetchCompanyDetails
     extend ActiveSupport::Concern
     
     module InstanceMethods

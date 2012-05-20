@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
   
   validates :ticker, :presence => true
   
-  include Extensions::Fetch
+  include Extensions::FetchCompanyDetails
   
   before_create :fetch_details
 end
