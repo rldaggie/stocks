@@ -5,7 +5,7 @@ module Extensions
     extend ActiveSupport::Concern
     
     module InstanceMethods
-      def fetch_details
+      def fetch_company_details
         fetch_name
       end
       

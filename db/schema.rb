@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120517170008) do
+ActiveRecord::Schema.define(:version => 20120521031053) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -19,5 +19,18 @@ ActiveRecord::Schema.define(:version => 20120517170008) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "companies", ["ticker"], :name => "index_companies_on_ticker"
+
+  create_table "financial_reports", :force => true do |t|
+    t.string   "period_type"
+    t.date     "period_ending"
+    t.integer  "company_id"
+    t.string   "sec_filing_url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "financial_reports", ["company_id"], :name => "index_financial_reports_on_company_id"
 
 end

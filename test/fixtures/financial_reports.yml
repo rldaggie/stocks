@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  period_type: MyString
+  period_ending: 2012-05-20
+  company_id: 1
+
+two:
+  period_type: MyString
+  period_ending: 2012-05-20
+  company_id: 1
