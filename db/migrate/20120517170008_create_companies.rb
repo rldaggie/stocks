@@ -6,5 +6,7 @@ class CreateCompanies < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :companies, :ticker
   end
 end
