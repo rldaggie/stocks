@@ -1,11 +1,11 @@
 <div class="page-header">
   <div class="btn-group pull-right">
     <%= link_to @company, class: 'btn' do %>
-      <i class="icon-info-sign"></i>
+      <%= icon 'icon-info-sign' %>
       <%= @company.name %> Details
     <% end %>
     <%= link_to companies_path, class: 'btn' do %>
-      <i class="icon-th-list"></i>
+      <%= icon 'icon-th-list' %>
       All Companies
     <% end %>
   </div><!--// .btn-group -->

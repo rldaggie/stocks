@@ -12,4 +12,12 @@ module ApplicationHelper
     end
   end
   
+  def icon_white(css_classes)
+    icon("#{css_classes} icon-white")
+  end
+  
+  def icon(css_classes)
+    content_tag :i, '', class: css_classes
+  end
+  
 end
