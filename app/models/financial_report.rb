@@ -2,7 +2,7 @@ class FinancialReport < ActiveRecord::Base
   belongs_to :company
   has_one :cash_flow_statement
   
-  default_scope :order => 'period_ending DESC'
+  default_scope order('financial_reports.period_ending DESC')
   scope :annual, where(:period_type => 'annual')
   scope :quarterly, where(:period_type => 'quarterly')
   

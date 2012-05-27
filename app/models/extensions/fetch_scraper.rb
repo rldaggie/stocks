@@ -28,7 +28,7 @@ module Extensions
       end
       
       def line_items_hash_for_statement(url, the_class, the_index)
-        dom_hash = the_class::ALL_ITEMS
+        dom_hash = the_class::DOM_HASH
         methods_array = the_class::ALL_ITEMS_KEYS
         doc = doc_for_url(url)
         methods_array.inject({}) do |the_hash, the_method|

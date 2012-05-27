@@ -1,5 +1,16 @@
 class CompanyDecorator < Draper::Base
   decorates :company
+  
+  def annual_cash_flow_statements_hash
+    statements = model.cash_flow_statements.annual.limit(5)    
+    CashFlowStatement::ALL_ITEMS_KEYS.inject({}) do |the_hash, the_method|
+      the_hash[the_method] = []
+      statements.each do |statement|
+        the_hash[the_method] << statement[the_method]
+      end
+      the_hash
+    end
+  end
 
   # Accessing Helpers
   #   You can access any helper via a proxy
