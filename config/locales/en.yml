@@ -2,4 +2,24 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  cash_flow_statements:
+    operating_net_income: "Net Income/Starting Line"
+    operating_depreciation: "Depreciation/Depletion"
+    operating_amortization: "Amortization"
+    operating_deferred_taxes: "Deferred Taxes"
+    operating_non_cash: "Non-Cash Items"
+    operating_changes_in_working_capital: "Changes in Working Capital"
+    operating_total: "Cash from Operating Activities"
+    investing_capital_expenditures: "Capital Expenditures"
+    investing_other: "Other Investing Cash Flow Items, Total"
+    investing_total: "Cash from Investing Activities"      
+    financing_items: "Financing Cash Flow Items"
+    financing_dividends: "Total Cash Dividends Paid"
+    financing_stock: "Issuance (Retirement) of Stock, Net"
+    financing_debt: "Issuance (Retirement) of Debt, Net"
+    financing_total: "Cash from Financing Activities"
+    misc_foreign_exchange: "Foreign Exchange Effects"
+    net_cash_change: "Net Change in Cash"
+    net_cash_beginning: "Net Cash - Beginning Balance"
+    net_cash_ending: "Net Cash - Ending Balance"
+      

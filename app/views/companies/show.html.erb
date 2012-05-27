@@ -13,4 +13,4 @@
   <h1><%= @company.name %> <small><%= @company.ticker.upcase %></small></h1>
 </div><!--// .page-header -->
 
-<p>Financial statements go here</p>
+<%= @company.cash_flow_statements %>

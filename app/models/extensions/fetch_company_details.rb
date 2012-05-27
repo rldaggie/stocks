@@ -1,8 +1,8 @@
-require 'open-uri'
-
 module Extensions
   module FetchCompanyDetails
     extend ActiveSupport::Concern
+    
+    include Extensions::FetchScraper
     
     module InstanceMethods
       def fetch_company_details
@@ -10,7 +10,7 @@ module Extensions
       end
       
       def fetch_name
-        doc = Nokogiri::HTML(open("http://investing.money.msn.com/investments/stock-price?Symbol=#{self.ticker}%2C&ocid=qbeb"))
+        doc = doc_for_url(details_url)
         self.name = doc.css('#quickquoteb .hr .cnex .cn a').first.content
       end
     end

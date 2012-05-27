@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521031053) do
+ActiveRecord::Schema.define(:version => 20120525011722) do
+
+  create_table "cash_flow_statements", :force => true do |t|
+    t.integer  "financial_report_id"
+    t.float    "operating_net_income"
+    t.float    "operating_depreciation"
+    t.float    "operating_amortization"
+    t.float    "operating_deferred_taxes"
+    t.float    "operating_non_cash"
+    t.float    "operating_changes_in_working_capital"
+    t.float    "operating_total"
+    t.float    "investing_capital_expenditures"
+    t.float    "investing_other"
+    t.float    "investing_total"
+    t.float    "financing_items"
+    t.float    "financing_dividends"
+    t.float    "financing_stock"
+    t.float    "financing_debt"
+    t.float    "financing_total"
+    t.float    "misc_foreign_exchange"
+    t.float    "net_cash_change"
+    t.float    "net_cash_beginning"
+    t.float    "net_cash_ending"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  add_index "cash_flow_statements", ["financial_report_id"], :name => "index_cash_flow_statements_on_financial_report_id"
 
   create_table "companies", :force => true do |t|
     t.string   "name"

@@ -1,12 +1,16 @@
 class Company < ActiveRecord::Base
   has_many :financial_reports
+  has_many :cash_flow_statements, :through => :financial_reports
   
-  attr_accessible :name, :ticker
-  
-  validates :name,    :presence => true
   validates :ticker,  :presence => true
   
   include Extensions::FetchCompanyDetails
+  include Extensions::FetchFinancialReports
+  include Extensions::CompanyUrls
   
   before_create :fetch_company_details
+  
+  def to_param
+    ticker
+  end
 end
