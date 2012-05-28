@@ -15,19 +15,19 @@ en:
     operating_deferred_taxes: 
       name: "Deferred Taxes"
       dom_id: "DeferredTaxes"
-    operating_non_cash: 
+    operating_non_cash_items: 
       name: "Non-Cash Items"
       dom_id: "NonCashItems"
-    operating_changes_in_working_capital: 
+    operating_changes_in_working_capital_items: 
       name: "Changes in Working Capital"
       dom_id: "ChangesinWorkingCapital"
     operating_total: 
       name: "Cash from Operating Activities"
       dom_id: "CashfromOperatingActivities"
-    investing_capital_expenditures: 
+    investing_capital_expenditures_items: 
       name: "Capital Expenditures"
       dom_id: "CapitalExpenditures"
-    investing_other: 
+    investing_other_items: 
       name: "Other Investing Cash Flow Items, Total"
       dom_id: "OtherInvestingCashFlowItemsTot"
     investing_total: 

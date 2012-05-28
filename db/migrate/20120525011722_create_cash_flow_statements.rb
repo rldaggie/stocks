@@ -7,11 +7,11 @@ class CreateCashFlowStatements < ActiveRecord::Migration
         :operating_depreciation,
         :operating_amortization,
         :operating_deferred_taxes,
-        :operating_non_cash_total,
-        :operating_changes_in_working_capital_total,
+        :operating_non_cash_items,
+        :operating_changes_in_working_capital_items,
         :operating_total,
-        :investing_capital_expenditures_total,
-        :investing_other_total,
+        :investing_capital_expenditures_items,
+        :investing_other_items,
         :investing_total,
         :financing_items,
         :financing_dividends,
@@ -21,7 +21,7 @@ class CreateCashFlowStatements < ActiveRecord::Migration
         :misc_foreign_exchange,
         :net_cash_change,
         :net_cash_beginning,
-        :net_cash_ending
+        :net_cash_ending,
       ].each do |the_method|
         t.float the_method
       end

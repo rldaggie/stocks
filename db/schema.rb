@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(:version => 20120525011722) do
     t.float    "operating_depreciation"
     t.float    "operating_amortization"
     t.float    "operating_deferred_taxes"
-    t.float    "operating_non_cash"
-    t.float    "operating_changes_in_working_capital"
+    t.float    "operating_non_cash_items"
+    t.float    "operating_changes_in_working_capital_items"
     t.float    "operating_total"
-    t.float    "investing_capital_expenditures"
-    t.float    "investing_other"
+    t.float    "investing_capital_expenditures_items"
+    t.float    "investing_other_items"
     t.float    "investing_total"
     t.float    "financing_items"
     t.float    "financing_dividends"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20120525011722) do
     t.float    "net_cash_change"
     t.float    "net_cash_beginning"
     t.float    "net_cash_ending"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   add_index "cash_flow_statements", ["financial_report_id"], :name => "index_cash_flow_statements_on_financial_report_id"
