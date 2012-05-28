@@ -2,24 +2,62 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  cash_flow_statements:
-    operating_net_income: "Net Income/Starting Line"
-    operating_depreciation: "Depreciation/Depletion"
-    operating_amortization: "Amortization"
-    operating_deferred_taxes: "Deferred Taxes"
-    operating_non_cash: "Non-Cash Items"
-    operating_changes_in_working_capital: "Changes in Working Capital"
-    operating_total: "Cash from Operating Activities"
-    investing_capital_expenditures: "Capital Expenditures"
-    investing_other: "Other Investing Cash Flow Items, Total"
-    investing_total: "Cash from Investing Activities"      
-    financing_items: "Financing Cash Flow Items"
-    financing_dividends: "Total Cash Dividends Paid"
-    financing_stock: "Issuance (Retirement) of Stock, Net"
-    financing_debt: "Issuance (Retirement) of Debt, Net"
-    financing_total: "Cash from Financing Activities"
-    misc_foreign_exchange: "Foreign Exchange Effects"
-    net_cash_change: "Net Change in Cash"
-    net_cash_beginning: "Net Cash - Beginning Balance"
-    net_cash_ending: "Net Cash - Ending Balance"
+  cash_flow_statement:
+    operating_net_income: 
+      name: "Net Income/Starting Line"
+      dom_id: "NetIncomeStartingLine"
+    operating_depreciation: 
+      name: "Depreciation/Depletion"
+      dom_id: "DepreciationDepletion"
+    operating_amortization: 
+      name: "Amortization"
+      dom_id: "Amortization"
+    operating_deferred_taxes: 
+      name: "Deferred Taxes"
+      dom_id: "DeferredTaxes"
+    operating_non_cash: 
+      name: "Non-Cash Items"
+      dom_id: "NonCashItems"
+    operating_changes_in_working_capital: 
+      name: "Changes in Working Capital"
+      dom_id: "ChangesinWorkingCapital"
+    operating_total: 
+      name: "Cash from Operating Activities"
+      dom_id: "CashfromOperatingActivities"
+    investing_capital_expenditures: 
+      name: "Capital Expenditures"
+      dom_id: "CapitalExpenditures"
+    investing_other: 
+      name: "Other Investing Cash Flow Items, Total"
+      dom_id: "OtherInvestingCashFlowItemsTot"
+    investing_total: 
+      name: "Cash from Investing Activities"
+      dom_id: "CashfromInvestingActivities"
+    financing_items: 
+      name: "Financing Cash Flow Items"
+      dom_id: "FinancingCashFlowItems"
+    financing_dividends: 
+      name: "Total Cash Dividends Paid"
+      dom_id: "TotalCashDividendsPaid"
+    financing_stock: 
+      name: "Issuance (Retirement) of Stock, Net"
+      dom_id: "IssuanceOrRetirementofStockNet"
+    financing_debt: 
+      name: "Issuance (Retirement) of Debt, Net"
+      dom_id: "IssuanceOrRetirementofDebtNet"
+    financing_total: 
+      name: "Cash from Financing Activities"
+      dom_id: "CashfromFinancingActivities"
+    misc_foreign_exchange: 
+      name: "Foreign Exchange Effects"
+      dom_id: "ForeignExchangeEffects"
+    net_cash_change: 
+      name: "Net Change in Cash"
+      dom_id: "NetChangeinCash"
+    net_cash_beginning: 
+      name: "Net Cash - Beginning Balance"
+      dom_id: "NetCashBeginningBalance"
+    net_cash_ending: 
+      name: "Net Cash - Ending Balance"
+      dom_id: "NetCashEndingBalance"
       

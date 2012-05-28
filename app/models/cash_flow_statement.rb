@@ -9,62 +9,62 @@ class CashFlowStatement < ActiveRecord::Base
   ALL_ITEMS = [
     {
       :group_name => 'operating_items',
-      :items => {
-        :operating_net_income => 'NetIncomeStartingLine', 
-        :operating_depreciation => 'DepreciationDepletion', 
-        :operating_amortization => 'Amortization', 
-        :operating_deferred_taxes => 'DeferredTaxes', 
-        :operating_non_cash => 'NonCashItems', 
-        :operating_changes_in_working_capital => 'ChangesinWorkingCapital',
-        :operating_total => 'CashfromOperatingActivities'
-      }
+      :items => [
+        :operating_net_income,
+        :operating_depreciation,
+        :operating_amortization,
+        :operating_deferred_taxes,
+        :operating_non_cash,
+        :operating_changes_in_working_capital,
+        :operating_total
+      ]
     },
     {
       :group_name => 'investing_items',
-      :items => {
-        :investing_capital_expenditures => 'CapitalExpenditures',
-        :investing_other => 'OtherInvestingCashFlowItemsTot',
-        :investing_total => 'CashfromInvestingActivities'
-      }
+      :items => [
+        :investing_capital_expenditures,
+        :investing_other,
+        :investing_total
+      ]
     },
     {
       :group_name => 'financing_items',
-      :items => {
-        :financing_items => 'FinancingCashFlowItems',
-        :financing_dividends => 'TotalCashDividendsPaid',
-        :financing_stock => 'IssuanceOrRetirementofStockNet',
-        :financing_debt => 'IssuanceOrRetirementofDebtNet',
-        :financing_total => 'CashfromFinancingActivities'
-      }
+      :items => [
+        :financing_items,
+        :financing_dividends,
+        :financing_stock,
+        :financing_debt,
+        :financing_total
+      ]
     },
     {
       :group_name => 'misc_items',
-      :items => {
-        :misc_foreign_exchange => 'ForeignExchangeEffects'
-      }
+      :items => [
+        :misc_foreign_exchange
+      ]
     },
     {
       :group_name => 'net_items',
-      :items => {
-        :net_cash_change => 'NetChangeinCash'
-      }
+      :items => [
+        :net_cash_change
+      ]
     },
     {
       :group_name => 'result_items',
-      :items => {
-        :net_cash_beginning => 'NetCashBeginningBalance', 
-        :net_cash_ending => 'NetCashEndingBalance'
-      }
+      :items => [
+        :net_cash_beginning,
+        :net_cash_ending
+      ]
     }
   ]
   
-  DOM_HASH = ALL_ITEMS.inject({}) do |the_hash, group_hash|
-    the_hash.merge!(group_hash[:items])
-    the_hash
-  end
-  
   ALL_ITEMS_KEYS = ALL_ITEMS.inject([]) do |the_array, group_hash|
-    the_array << group_hash[:items].keys
+    the_array << group_hash[:items]
     the_array
   end.flatten
+  
+  DOM_HASH = ALL_ITEMS_KEYS.inject({}) do |the_hash, item|
+    the_hash[item] = I18n.t("cash_flow_statement.#{item.to_s}.dom_id")
+    the_hash
+  end
 end

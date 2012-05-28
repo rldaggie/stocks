@@ -1,12 +1,5 @@
 Stocks::Application.routes.draw do
-  resources :companies do
-    member do
-      FinancialReport::PERIOD_TYPES.each do |period_type|
-        get "#{period_type}_financial_reports"
-        get "#{period_type}_cash_flow_statements"
-      end
-    end
-  end
+  resources :companies
 
   get "welcome/index"
 

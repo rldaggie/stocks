@@ -27,7 +27,7 @@ class FinancialReport < ActiveRecord::Base
   def create_statements_from_hash(the_hash)
     the_hash.each do |key, value|
       the_class = key.camelize.constantize
-      the_hash = {:financial_report_id => financial_report.id}.merge(value)
+      the_hash = {:financial_report_id => id}.merge(value)
       the_class.create(the_hash)
     end
   end

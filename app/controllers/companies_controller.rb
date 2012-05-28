@@ -20,23 +20,6 @@ class CompaniesController < ApplicationController
       format.json { render json: @company }
     end
   end
-  
-  def annual_financial_reports
-    @company = CompanyDecorator.find_by_ticker(params[:id])
-  end
-  
-  def quarterly_financial_reports
-    @company = CompanyDecorator.find_by_ticker(params[:id])
-  end
-  
-  def annual_cash_flow_statements
-    @company = CompanyDecorator.find_by_ticker(params[:id])
-    @annual_cash_flow_statements = @company.annual_cash_flow_statements_hash
-  end
-  
-  def quarterly_cash_flow_statements
-    @company = CompanyDecorator.find_by_ticker(params[:id])
-  end
 
   # GET /companies/new
   # GET /companies/new.json
