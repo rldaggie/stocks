@@ -11,7 +11,54 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525011722) do
+ActiveRecord::Schema.define(:version => 20120528161706) do
+
+  create_table "balance_sheets", :force => true do |t|
+    t.integer  "financial_report_id"
+    t.float    "assets_current_cash_and_short_term_investments"
+    t.float    "assets_current_receivables"
+    t.float    "assets_current_inventory"
+    t.float    "assets_current_prepaid_expenses"
+    t.float    "assets_current_other"
+    t.float    "assets_current_total"
+    t.float    "assets_other_property_plant_equipment"
+    t.float    "assets_other_goodwill"
+    t.float    "assets_other_intangibles"
+    t.float    "assets_other_long_term_investments"
+    t.float    "assets_other_receivables"
+    t.float    "assets_other_misc"
+    t.float    "assets_other_total"
+    t.float    "assets_total"
+    t.float    "liabilities_current_accounts_payable"
+    t.float    "liabilities_current_payable_accrued"
+    t.float    "liabilities_current_accrued_expenses"
+    t.float    "liabilities_current_notes_payable"
+    t.float    "liabilities_current_leases"
+    t.float    "liabilities_current_other"
+    t.float    "liabilities_current_total"
+    t.float    "liabilities_other_debt"
+    t.float    "liabilities_other_deferred_income_tax"
+    t.float    "liabilities_other_minority_interest"
+    t.float    "liabilities_other_misc"
+    t.float    "liabilities_total"
+    t.float    "equity_preferred_stock_redeemable"
+    t.float    "equity_preferred_stock_non_redeemable"
+    t.float    "equity_common_stock"
+    t.float    "equity_additional_paid_in_capital"
+    t.float    "equity_retained_earnings"
+    t.float    "equity_treasury_stock"
+    t.float    "equity_esop_debt_guarantee"
+    t.float    "equity_unrealized_gain"
+    t.float    "equity_other"
+    t.float    "equity_total"
+    t.float    "liabilities_and_equity_total"
+    t.float    "shares_common_outstanding"
+    t.float    "shares_preferred_outstanding"
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
+
+  add_index "balance_sheets", ["financial_report_id"], :name => "index_balance_sheets_on_financial_report_id"
 
   create_table "cash_flow_statements", :force => true do |t|
     t.integer  "financial_report_id"

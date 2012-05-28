@@ -61,3 +61,121 @@ en:
       name: "Net Cash - Ending Balance"
       dom_id: "NetCashEndingBalance"
       
+  balance_sheet:
+    assets_current_cash_and_short_term_investments:
+      name: "Cash and Short Term Investments"
+      dom_id: "CashandShortTermInvestments"
+    assets_current_receivables:
+      name: "Total Receivables, Net"
+      dom_id: "TotalReceivablesNet"
+    assets_current_inventory:
+      name: "Total Inventory"
+      dom_id: "TotalInventory"
+    assets_current_prepaid_expenses:
+      name: "Prepaid Expenses"
+      dom_id: "PrepaidExpenses"
+    assets_current_other:
+      name: "Other Current Assets, Total"
+      dom_id: "OtherCurrentAssetsTotal"
+    assets_current_total:
+      name: "Total Current Assets"
+      dom_id: "TotalCurrentAssets"
+    assets_other_property_plant_equipment:
+      name: "Property/Plant/Equipment, Total - Net"
+      dom_id: "PropertyPlantEquipmentTotalNet"
+    assets_other_goodwill:
+      name: "Goodwill, Net"
+      dom_id: "GoodwillNet"
+    assets_other_intangibles:
+      name: "Intangibles, Net"
+      dom_id: "IntangiblesNet"
+    assets_other_long_term_investments:
+      name: "Long Term Investments"
+      dom_id: "LongTermInvestments"
+    assets_other_receivables:
+      name: "Note Receivable - Long Term"
+      dom_id: "NoteReceivableLongTerm"
+    assets_other_misc:
+      name: "Other Long Term Assets, Total"
+      dom_id: "OtherLongTermAssetsTotal"
+    assets_other_total:
+      name: "Other Assets, Total"
+      dom_id: "OtherAssetsTotal"
+    assets_total:
+      name: "Total Assets"
+      dom_id: "TotalAssets"
+    liabilities_current_accounts_payable:
+      name: "Accounts Payable"
+      dom_id: "AccountsPayable"
+    liabilities_current_payable_accrued:
+      name: "Payable/Accrued"
+      dom_id: "PayableAccrued"
+    liabilities_current_accrued_expenses:
+      name: "Accrued Expenses"
+      dom_id: "AccruedExpenses"
+    liabilities_current_notes_payable:
+      name: "Notes Payable/Short Term Debt"
+      dom_id: "NotesPayableShortTermDebt"
+    liabilities_current_leases:
+      name: "Current Port. of LT Debt/Capital Leases"
+      dom_id: "CurrentPortofLTDebtCapitalLeas"
+    liabilities_current_other:
+      name: "Other Current Liabilities, Total"
+      dom_id: "OtherCurrentliabilitiesTotal"
+    liabilities_current_total:
+      name: "Total Current Liabilities"
+      dom_id: "TotalCurrentLiabilities"
+    liabilities_other_debt:
+      name: "Total Long Term Debt"
+      dom_id: "TotalLongTermDebt"
+    liabilities_other_deferred_income_tax:
+      name: "Deferred Income Tax"
+      dom_id: "DeferredIncomeTax"
+    liabilities_other_minority_interest:
+      name: "Minority Interest"
+      dom_id: "MinorityInterest"
+    liabilities_other_misc:
+      name: "Other Liabilities, Total"
+      dom_id: "OtherLiabilitiesTotal"
+    liabilities_total:
+      name: "Total Liabilities"
+      dom_id: "TotalLiabilities"
+    equity_preferred_stock_redeemable:
+      name: "Redeemable Preferred Stock"
+      dom_id: "RedeemablePreferredStockTotal"
+    equity_preferred_stock_non_redeemable:
+      name: "Preferred Stock - Non Redeemable, Net"
+      dom_id: "PreferredStockNonRedeemableNet"
+    equity_common_stock:
+      name: "Common Stock"
+      dom_id: "CommonStockTotal"
+    equity_additional_paid_in_capital:
+      name: "Additional Paid-In Capital"
+      dom_id: "AdditionalPaidInCapital"
+    equity_retained_earnings:
+      name: "Retained Earnings (Accumulated Deficit)"
+      dom_id: "RetainedEarningsOrAccumulatedD"
+    equity_treasury_stock:
+      name: "Treasury Stock - Common"
+      dom_id: "TreasuryStockCommon"
+    equity_esop_debt_guarantee:
+      name: "ESOP Debt Guarantee"
+      dom_id: "ESOPDebtGuarantee"
+    equity_unrealized_gain:
+      name: "Unrealized Gain (Loss)"
+      dom_id: "UnrealizedGainOrLoss"
+    equity_other:
+      name: "Other Equity, Total"
+      dom_id: "OtherEquityTotal"
+    equity_total:
+      name: "Total Equity"
+      dom_id: "TotalEquity"
+    liabilities_and_equity_total:
+      name: "Total Liabilities & Shareholders’ Equity"
+      dom_id: "TotalLiabilitiesAndShareholder"
+    shares_common_outstanding:
+      name: "Total Common Shares Outstanding"
+      dom_id: "TotalCommonSharesOutstanding"
+    shares_preferred_outstanding:
+      name: "Total Preferred Shares Outstanding"
+      dom_id: "TotalPreferredSharesOutstandin"
