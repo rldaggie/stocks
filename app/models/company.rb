@@ -4,6 +4,8 @@ class Company < ActiveRecord::Base
   has_many :balance_sheets, :through => :financial_reports
   has_many :income_statements, :through => :financial_reports
   
+  attr_accessible :ticker, :name
+  
   validates :ticker, :presence => true
   
   include Extensions::FetchCompanyDetails

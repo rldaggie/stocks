@@ -20,4 +20,9 @@ module ApplicationHelper
     content_tag :i, '', class: css_classes
   end
   
+  def copyright_year
+    the_year = Time.now.year
+    the_year == 2012 ? the_year : "2012-#{the_year}"
+  end
+  
 end
