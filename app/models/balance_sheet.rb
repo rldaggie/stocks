@@ -9,7 +9,7 @@ class BalanceSheet < ActiveRecord::Base
     def all_items
       [
         {
-          :group_name => 'assets_current',
+          :group_key => 'assets_current',
           :items => [
             :assets_current_cash_and_short_term_investments,
             :assets_current_receivables,
@@ -20,7 +20,7 @@ class BalanceSheet < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'assets_other',
+          :group_key => 'assets_other',
           :items => [
             :assets_other_property_plant_equipment,
             :assets_other_goodwill,
@@ -33,7 +33,7 @@ class BalanceSheet < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'liabilities_current',
+          :group_key => 'liabilities_current',
           :items => [
             :liabilities_current_accounts_payable,
             :liabilities_current_payable_accrued,
@@ -45,7 +45,7 @@ class BalanceSheet < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'liabilities_other',
+          :group_key => 'liabilities_other',
           :items => [
             :liabilities_other_debt,
             :liabilities_other_deferred_income_tax,
@@ -55,7 +55,7 @@ class BalanceSheet < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'equity',
+          :group_key => 'equity',
           :items => [
             :equity_preferred_stock_redeemable,
             :equity_preferred_stock_non_redeemable,
@@ -70,13 +70,13 @@ class BalanceSheet < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'total_liabilties_and_equity',
+          :group_key => 'total_liabilties_and_equity',
           :items => [
             :liabilities_and_equity_total
           ]
         },
         {
-          :group_name => 'shares_outstanding',
+          :group_key => 'shares_outstanding',
           :items => [
             :shares_common_outstanding,
             :shares_preferred_outstanding

@@ -9,7 +9,7 @@ class CashFlowStatement < ActiveRecord::Base
     def all_items
       [
         {
-          :group_name => 'operating_items',
+          :group_key => 'operating_items',
           :items => [
             :operating_net_income,
             :operating_depreciation,
@@ -21,7 +21,7 @@ class CashFlowStatement < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'investing_items',
+          :group_key => 'investing_items',
           :items => [
             :investing_capital_expenditures_items,
             :investing_other_items,
@@ -29,7 +29,7 @@ class CashFlowStatement < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'financing_items',
+          :group_key => 'financing_items',
           :items => [
             :financing_items,
             :financing_dividends,
@@ -39,19 +39,19 @@ class CashFlowStatement < ActiveRecord::Base
           ]
         },
         {
-          :group_name => 'misc_items',
+          :group_key => 'misc_items',
           :items => [
             :misc_foreign_exchange
           ]
         },
         {
-          :group_name => 'net_items',
+          :group_key => 'net_items',
           :items => [
             :net_cash_change
           ]
         },
         {
-          :group_name => 'result_items',
+          :group_key => 'result_items',
           :items => [
             :net_cash_beginning,
             :net_cash_ending

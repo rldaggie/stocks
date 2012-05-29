@@ -25,20 +25,46 @@ module Extensions
       
       def formatted_hash
         statements = all
+        new_hash = {:periods => periods_from_statements(statements)}
+        new_hash[:groups] = modified_all_items(statements)
+        new_hash
+      end
+      
+      private
+      
+      def modified_all_items(statements)
         all_items.each do |group|
-          group[:items] = group[:items].inject({}) do |the_hash, item|
-            the_hash[item] = statements.inject([]) do |the_array, statement|
-              the_array << statement[item]
-              the_array
-            end
-            the_hash
-          end
+          group[:items] = modified_group_items(group[:items], statements)
+        end
+      end
+      
+      def modified_group_items(items, statements)
+        items.inject({}) do |the_hash, item|
+          the_hash[:item_key] = item
+          the_hash[:values] = values_from_statements(statements, item)
+          the_hash
+        end
+      end
+      
+      def values_from_statements(statements, item)
+        statements.inject([]) do |the_array, statement|
+          the_array << statement[item]
+          the_array
+        end
+      end
+      
+      def periods_from_statements(statements)
+        statements.inject([]) do |the_array, statement|
+          the_array << statement.period_ending.strftime("%m/%d/%Y")
+          the_array
         end
       end
     end
     
     module InstanceMethods
-      
+      def period_ending
+        financial_report.period_ending
+      end
     end
   end
 end
