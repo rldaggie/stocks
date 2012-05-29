@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528161706) do
+ActiveRecord::Schema.define(:version => 20120528213013) do
 
   create_table "balance_sheets", :force => true do |t|
     t.integer  "financial_report_id"
@@ -106,5 +106,38 @@ ActiveRecord::Schema.define(:version => 20120528161706) do
   end
 
   add_index "financial_reports", ["company_id"], :name => "index_financial_reports_on_company_id"
+
+  create_table "income_statements", :force => true do |t|
+    t.integer  "financial_report_id"
+    t.float    "revenue"
+    t.float    "revenue_other"
+    t.float    "revenue_total"
+    t.float    "cost_of_revenue"
+    t.float    "income_gross"
+    t.float    "op_expense_selling_general_admin"
+    t.float    "op_expense_research_development"
+    t.float    "op_expense_depreciation_amortization"
+    t.float    "op_expense_interest"
+    t.float    "op_expense_unusual"
+    t.float    "op_expense_other"
+    t.float    "income_operating"
+    t.float    "non_op_expense_interest"
+    t.float    "non_op_expense_asset_sale"
+    t.float    "non_op_expense_other"
+    t.float    "income_before_tax"
+    t.float    "tax_income"
+    t.float    "income_after_tax"
+    t.float    "misc_expense_minority_interest"
+    t.float    "misc_expense_equity_in_affiliates"
+    t.float    "misc_expense_us_gaap_adjustment"
+    t.float    "income_before_extra_items"
+    t.float    "extra_items"
+    t.float    "income_net"
+    t.float    "adjustment_to_net_income"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  add_index "income_statements", ["financial_report_id"], :name => "index_income_statements_on_financial_report_id"
 
 end

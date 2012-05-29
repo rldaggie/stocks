@@ -11,7 +11,7 @@ module Extensions
       end
       
       def fetched_financial_statements_hash(period_type, period_ending)
-        ['cash_flow_statement', 'balance_sheet'].inject({}) do |the_hash, the_statement|
+        ['cash_flow_statement', 'balance_sheet', 'income_statement'].inject({}) do |the_hash, the_statement|
           the_hash[the_statement] = fetched_financial_statement_hash(the_statement, period_type, period_ending)
           the_hash
         end

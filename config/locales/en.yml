@@ -179,3 +179,80 @@ en:
     shares_preferred_outstanding:
       name: "Total Preferred Shares Outstanding"
       dom_id: "TotalPreferredSharesOutstandin"
+            
+  income_statement:
+    revenue:
+      name: "Revenue"
+      dom_id: "Revenue"
+    revenue_other:
+      name: "Other Revenue, Total"
+      dom_id: "OtherRevenueTotal"
+    revenue_total:
+      name: "Total Revenue"
+      dom_id: "TotalRevenue"
+    cost_of_revenue:
+      name: "Cost of Revenue, Total"
+      dom_id: "CostofRevenueTotal"
+    income_gross:
+      name: "Gross Profit"
+      dom_id: "GrossProfit"
+    op_expense_selling_general_admin:
+      name: "Selling/General/Administrative Expenses, Total"
+      dom_id: "SellingGeneralAdminExpensesTot"
+    op_expense_research_development:
+      name: "Research & Development"
+      dom_id: "ResearchAndDevelopment"
+    op_expense_depreciation_amortization:
+      name: "Depreciation/Amortization"
+      dom_id: "DepreciationAmortization"
+    op_expense_interest:
+      name: "Interest Expense (Income), Net Operating"
+      dom_id: "InterestExpenseOrIncomeNetOper"
+    op_expense_unusual:
+      name: "Unusual Expense (Income)"
+      dom_id: "UnusualExpenseOrIncome"
+    op_expense_other:
+      name: "Other Operating Expenses, Total"
+      dom_id: "OtherOperatingExpensesTotal"
+    income_operating:
+      name: "Operating Income"
+      dom_id: "OperatingIncome"
+    non_op_expense_interest:
+      name: "Interest Income (Expense), Net Non-Operating"
+      dom_id: "InterestIncomeOrExpNetNonOpera1"
+    non_op_expense_asset_sale:
+      name: "Gain (Loss) on Sale of Assets"
+      dom_id: "GainOrLossonSaleofAssets"
+    non_op_expense_other:
+      name: "Other, Net"
+      dom_id: "OtherNet"
+    income_before_tax:
+      name: "Income Before Tax"
+      dom_id: "NetIncomeBeforeTaxes"
+    tax_income:
+      name: "Income Tax - Total"
+      dom_id: "ProvisionforIncomeTaxes"
+    income_after_tax:
+      name: "Income After Tax"
+      dom_id: "NetIncomeAfterTaxes"
+    misc_expense_minority_interest:
+      name: "Minority Interest"
+      dom_id: "MinorityInterest"
+    misc_expense_equity_in_affiliates:
+      name: "Equity In Affiliates"
+      dom_id: "EquityInAffiliates"
+    misc_expense_us_gaap_adjustment:
+      name: "U.S. GAAP Adjustment"
+      dom_id: "USGAAPAdjustment"
+    income_before_extra_items:
+      name: "Net Income Before Extra. Items"
+      dom_id: "NetIncomeBeforeExtraItems"
+    extra_items:
+      name: "Total Extraordinary Items"
+      dom_id: "TotalExtraordinaryItems"
+    income_net:
+      name: "Net Income"
+      dom_id: "NetIncome"
+    adjustment_to_net_income:
+      name: "Total Adjustments to Net Income"
+      dom_id: "TotalAdjustmentstoNetIncome"
