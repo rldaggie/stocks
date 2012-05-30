@@ -4,21 +4,25 @@
 </div><!--// .page-header -->
 
 <ul class="nav nav-tabs">
-  <li><a href="#income_statements" data-toggle="tab">Income Statements</a></li>
-  <li><a href="#balance_sheets" data-toggle="tab">Balance Sheets</a></li>
-  <li><a href="#cash_flow_statements" data-toggle="tab">Cash Flow Statements</a></li>
+  <% statements_array.each do |statement| %>
+    <%= statement_tab(statement) %>
+  <% end %>
 </ul>
 
 <div class="tab-content">
-  <div id="income_statements" class="tab-pane">
-    IncomeStatements
-  </div><!--// #income_statements -->
-  
-  <div id="balance_sheets" class="tab-pane">
-    BalanceSheets
-  </div><!--// #balance_sheets -->
-  
-  <div id="cash_flow_statements" class="tab-pane">
-    CashFlowStatements
-  </div><!--// #cash_flow_statements -->
+  <% statements_array.each do |statement| %>
+    <%= render 'tab_pane', dom_id: statement.to_s %>
+  <% end %>
 </div><!--// .tab-content -->
+
+<%= javascript_tag do %>
+  var statements = <%= raw @financial_reports.to_json %>;
+  
+  $(document).ready(function() {
+    $('.nav.nav-tabs a:first').tab('show');
+    
+    <% statements_array.each do |statement| %>
+      ko.applyBindings(new FinancialReportTable(statements.<%= statement.to_s %>), $('#<%= statement.to_s %>')[0]);
+    <% end %>
+  });
+<% end %>

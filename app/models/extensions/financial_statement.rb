@@ -6,6 +6,7 @@ module Extensions
       scope :annual, joins(:financial_report).merge(FinancialReport.annual)
       scope :quarterly, joins(:financial_report).merge(FinancialReport.quarterly)
       scope :recent, limit(5)
+      scope :financial_report_ids, lambda { |ids_array| where(:financial_report_id => ids_array) }
     end
     
     module ClassMethods
@@ -25,6 +26,10 @@ module Extensions
       
       def formatted_hash
         statements = all
+        formatted_hash_from_array(statements)
+      end
+      
+      def formatted_hash_from_array(statements)
         new_hash = {:periods => periods_from_statements(statements)}
         new_hash[:groups] = modified_all_items(statements)
         new_hash
@@ -39,10 +44,11 @@ module Extensions
       end
       
       def modified_group_items(items, statements)
-        items.inject({}) do |the_hash, item|
-          the_hash[:item_key] = item
+        items.inject([]) do |the_array, item|
+          the_hash = {:item_key => item}
           the_hash[:values] = values_from_statements(statements, item)
-          the_hash
+          the_array << the_hash
+          the_array
         end
       end
       
@@ -55,9 +61,13 @@ module Extensions
       
       def periods_from_statements(statements)
         statements.inject([]) do |the_array, statement|
-          the_array << statement.period_ending.strftime("%m/%d/%Y")
+          the_array << period_hash(statement.period_ending)
           the_array
         end
+      end
+      
+      def period_hash(period_ending)
+        { :period => period_ending.strftime("%m/%d/%Y") }
       end
     end
     

@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
-$(document).ready(function() {
-  $('.nav.nav-tabs a:first').tab('show');
-});
+//= require bootstrap
+//= require knockout-2.1.0
+//= require financial_reports

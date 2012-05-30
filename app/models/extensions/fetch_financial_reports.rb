@@ -6,12 +6,11 @@ module Extensions
     include Extensions::FetchFinancialStatements
     
     module InstanceMethods
-      def fetch_financial_reports
-        the_array = fetched_financial_reports_array
-        # self.financial_reports.create_from_array(the_array)
+      def fetch_and_create_financial_reports
+        self.financial_reports.create_from_array(fetch_financial_reports)
       end
       
-      def fetched_financial_reports_array
+      def fetch_financial_reports
         FinancialReport::PERIOD_TYPES.inject([]) do |the_array, period_type|
           fetched_periods_array_for_period_type(period_type).uniq.each do |period_ending|
             the_array << hash_for_period(period_type, period_ending)
@@ -20,6 +19,8 @@ module Extensions
         end
       end
       
+      private
+      
       def hash_for_period(period_type, period_ending)
         {
           :period_type => period_type,
@@ -27,8 +28,6 @@ module Extensions
           :financial_statements => fetch_financial_statements(period_type, period_ending)
         }
       end
-      
-      private
       
       def fetched_periods_array_for_period_type(period_type)
         self.screen_scrape_urls_hash[period_type].values.inject([]) do |the_array, url|
