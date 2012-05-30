@@ -4,7 +4,7 @@ class FinancialReportsController < ApplicationController
   # GET /financial_reports
   # GET /financial_reports.json
   def index
-    @financial_reports = @company.financial_reports.annual.recent.include_statements.formatted_hash
+    @financial_reports = @company.financial_reports.annual.recent.formatted_hash
 
     respond_to do |format|
       format.html 

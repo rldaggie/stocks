@@ -1,4 +1,4 @@
-<div class="page-header">
+<%= page_header do %>
   <div class="btn-group pull-right">
     <%= link_to @company, class: 'btn' do %>
       <%= icon 'icon-info-sign' %>
@@ -11,6 +11,6 @@
   </div><!--// .btn-group -->
   
   <h1>Editing company</h1>
-</div><!--// .page-header -->
+<% end %>
 
 <%= render 'form' %>

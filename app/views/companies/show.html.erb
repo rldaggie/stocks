@@ -1,4 +1,4 @@
-<div class="page-header">
+<%= page_header do %>
   <div class="btn-group pull-right">
     <%= link_to edit_company_path(@company), class: 'btn btn-warning' do %>
       <%= icon_white 'icon-edit' %>
@@ -11,6 +11,6 @@
   </div><!--// .btn-group -->
   
   <h1><%= @company.name %> <small><%= @company.ticker.upcase %></small></h1>
-</div><!--// .page-header -->
+<% end %>
 
 <%= @company.cash_flow_statements %>

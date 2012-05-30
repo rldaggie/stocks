@@ -25,4 +25,8 @@ module ApplicationHelper
     the_year == 2012 ? the_year : "2012-#{the_year}"
   end
   
+  def page_header(&block)
+    content_tag :div, capture(&block), class: 'page-header'
+  end
+  
 end
