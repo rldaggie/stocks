@@ -2,7 +2,11 @@
   <div class="btn-group pull-right">
     <%= link_to edit_company_path(@company), class: 'btn btn-warning' do %>
       <%= icon_white 'icon-edit' %>
-      Edit
+      Edit Company
+    <% end %>
+    <%= link_to annual_company_financial_reports_path(@company), class: 'btn btn-info' do %>
+      <%= icon_white 'icon-list' %>
+      Annual Reports
     <% end %>
     <%= link_to companies_path, class: 'btn' do %>
       <%= icon 'icon-th-list' %>

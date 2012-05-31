@@ -1,24 +1,27 @@
 <div id="<%= dom_id %>" class="tab-pane">
-  <!-- ko foreach: groups -->
-    <table class="table table-striped">
-      <colgroup>
-        <col class="span7">
-        <col class="span1">
-        <col class="span1">
-        <col class="span1">
-        <col class="span1">
-        <col class="span1">
-      </colgroup>
-      <thead>
-        <tr>
-          <th data-bind="text: name"></th>
-          <!-- ko foreach: $root.periods -->
-            <th data-bind="text: period" style="text-align: right;"></th>
-          <!-- /ko -->
-        </tr>
-      </thead>
+  <table class="table table-striped table-condensed">
+    <colgroup>
+      <col class="span7">
+      <col class="span1">
+      <col class="span1">
+      <col class="span1">
+      <col class="span1">
+      <col class="span1">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Period Ending</th>
+        <!-- ko foreach: $root.periods -->
+          <th data-bind="text: period" style="text-align: right;"></th>
+        <!-- /ko -->
+      </tr>
+    </thead>
 
-      <tbody>
+    <tbody>
+      <!-- ko foreach: groups -->
+        <tr>
+          <td colspan="6">&nbsp;</td>
+        </tr>
         <!-- ko foreach: items -->
           <tr>
             <td data-bind="text: name"></td>
@@ -27,7 +30,7 @@
             <!-- /ko -->
           </tr>
         <!-- /ko -->
-      </tbody>
-    </table>
-  <!-- /ko -->
+      <!-- /ko -->
+    </tbody>
+  </table>
 </div><!--// #<%= dom_id %> -->

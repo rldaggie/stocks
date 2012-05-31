@@ -71,10 +71,8 @@ module Extensions
       end
     end
     
-    module InstanceMethods
-      def period_ending
-        financial_report.period_ending
-      end
+    def period_ending
+      financial_report.period_ending
     end
   end
 end

@@ -17,13 +17,11 @@ module Extensions
       end
     end
     
-    module InstanceMethods
-      def create_statements_from_hash(the_hash)
-        the_hash.each do |key, value|
-          the_class = FinancialReport.classify_string(key)
-          the_hash = {:financial_report_id => id}.merge(value)
-          the_class.create(the_hash)
-        end
+    def create_statements_from_hash(the_hash)
+      the_hash.each do |key, value|
+        the_class = FinancialReport.classify_string(key)
+        the_hash = {:financial_report_id => id}.merge(value)
+        the_class.create(the_hash)
       end
     end
   end

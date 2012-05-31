@@ -1,5 +1,8 @@
 <%= page_header do %>
-  <%= link_to 'Back', @company, class: 'btn btn-info pull-right' %>
+  <%= link_to @company, class: 'btn btn-info pull-right' do %>
+    <%= icon_white 'icon-list-alt' %>
+    Company Details
+  <% end %>
   <h1>Financial Reports <small><%= @company.name %></small></h1>
 <% end %>
 
