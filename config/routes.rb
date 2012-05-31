@@ -7,24 +7,9 @@ Stocks::Application.routes.draw do
         get 'quarterly'
       end
     end
-    resources :cash_flow_statements do
-      collection do
-        get 'annual'
-        get 'quarterly'
-      end
-    end
-    resources :income_statements do
-      collection do
-        get 'annual'
-        get 'quarterly'
-      end
-    end
-    resources :balance_sheets do
-      collection do
-        get 'annual'
-        get 'quarterly'
-      end
-    end
+    resources :cash_flow_statements
+    resources :income_statements
+    resources :balance_sheets
   end
 
   get "welcome/index"
