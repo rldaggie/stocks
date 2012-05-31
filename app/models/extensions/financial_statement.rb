@@ -45,7 +45,7 @@ module Extensions
       
       def modified_group_items(items, statements)
         items.inject([]) do |the_array, item|
-          the_hash = {:item_key => item}
+          the_hash = {:item_key => I18n.t("#{self.to_s.underscore}.#{item}.name")}
           the_hash[:values] = values_from_statements(statements, item)
           the_array << the_hash
           the_array
