@@ -22,15 +22,13 @@ module Extensions
       end
     end
     
-    def cell_index_for_period_type(url, period_ending)
-      doc = doc_for_url(url)
+    def cell_index_for_period_type(doc, period_ending)
       cell_values_from_row(doc, period_dom_id).index(period_ending)
     end
     
-    def line_items_hash_for_statement(url, the_class, the_index)
+    def line_items_hash_for_statement(doc, the_class, the_index)
       dom_hash = the_class.dom_hash
       methods_array = the_class.all_items_keys
-      doc = doc_for_url(url)
       methods_array.inject({}) do |the_hash, the_method|
         dom_id = "##{dom_hash[the_method]}"
         the_hash[the_method] = formatted_cell_value(cell_value_from_row_and_index(doc, dom_id, the_index))

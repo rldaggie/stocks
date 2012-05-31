@@ -10,9 +10,10 @@ module Extensions
     end
     
     def fetch_financial_reports
+      doc_hash = screen_scrape_doc_hash
       FinancialReport::PERIOD_TYPES.inject([]) do |the_array, period_type|
-        fetch_periods_array_for_period_type(period_type).uniq.each do |period_ending|
-          the_array << hash_for_period(period_type, period_ending)
+        fetch_periods_array_for_period_type(period_type, doc_hash).uniq.each do |period_ending|
+          the_array << hash_for_period(period_type, period_ending, doc_hash)
         end
         the_array
       end
@@ -20,23 +21,32 @@ module Extensions
     
     private
     
-    def hash_for_period(period_type, period_ending)
+    def hash_for_period(period_type, period_ending, doc_hash)
       {
         :period_type => period_type,
         :period_ending => period_ending,
-        :financial_statements => fetch_financial_statements(period_type, period_ending)
+        :financial_statements => fetch_financial_statements(period_type, period_ending, doc_hash)
       }
     end
     
-    def fetch_periods_array_for_period_type(period_type)
-      self.screen_scrape_urls_hash[period_type].values.inject([]) do |the_array, url|
-        the_array << fetch_periods_array_for_url(url)
+    def screen_scrape_doc_hash
+      screen_scrape_urls_hash.keys.inject({}) do |the_hash, period_type|
+        the_hash[period_type] = screen_scrape_urls_hash[period_type].keys.inject({}) do |statement_hash, statement|
+          statement_hash[statement] = doc_for_url(screen_scrape_urls_hash[period_type][statement])
+          statement_hash
+        end
+        the_hash
+      end
+    end
+        
+    def fetch_periods_array_for_period_type(period_type, doc_hash)
+      doc_hash[period_type].values.inject([]) do |the_array, doc|
+        the_array << fetch_periods_array_for_doc(doc)
         the_array
       end.flatten
     end
     
-    def fetch_periods_array_for_url(url)
-      doc = doc_for_url(url)
+    def fetch_periods_array_for_doc(doc)
       table_cells = cell_values_from_row(doc, period_dom_id)
       valid_periods_array(table_cells)
     end
