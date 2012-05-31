@@ -6,16 +6,20 @@ class Item
   constructor: (@item) ->
     @name = @item.item_key
     @values = ko.observableArray @item.values
+    
 
 class Group
   constructor: (@group) ->
     @name = @group.group_key
     @items = ko.observableArray []
+    @last_item = ko.observable()
     this.buildItems()
   
   buildItems: ->
     mappedItems = $.map @group.items, (item) ->
       new Item item
+    @last_item = mappedItems.slice(-1)[0]
+    mappedItems.pop()
     @items mappedItems
 
 class window.FinancialReportTable

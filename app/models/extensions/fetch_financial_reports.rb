@@ -11,7 +11,7 @@ module Extensions
     
     def fetch_financial_reports
       FinancialReport::PERIOD_TYPES.inject([]) do |the_array, period_type|
-        fetched_periods_array_for_period_type(period_type).uniq.each do |period_ending|
+        fetch_periods_array_for_period_type(period_type).uniq.each do |period_ending|
           the_array << hash_for_period(period_type, period_ending)
         end
         the_array
@@ -28,16 +28,29 @@ module Extensions
       }
     end
     
-    def fetched_periods_array_for_period_type(period_type)
+    def fetch_periods_array_for_period_type(period_type)
       self.screen_scrape_urls_hash[period_type].values.inject([]) do |the_array, url|
-        the_array << fetched_periods_array_for_url(url)
+        the_array << fetch_periods_array_for_url(url)
         the_array
       end.flatten
     end
     
-    def fetched_periods_array_for_url(url)
+    def fetch_periods_array_for_url(url)
       doc = doc_for_url(url)
       table_cells = cell_values_from_row(doc, period_dom_id)
+      valid_periods_array(table_cells)
+    end
+    
+    def valid_periods_array(periods)
+      periods.map do |period|
+        begin
+          Date.strptime(period, "%m/%d/%Y")
+        rescue
+          nil
+        else
+          period
+        end
+      end.compact
     end
   end
 end

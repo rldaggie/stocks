@@ -16,3 +16,15 @@
 body {
   padding: 60px 0px 40px 0px;
 }
+
+.red {
+  color: red;
+}
+
+.align_right {
+  text-align: right !important;
+}
+
+tr.bold td {
+  font-weight: bold !important;
+}

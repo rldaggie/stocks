@@ -12,7 +12,7 @@
       <tr>
         <th>Period Ending</th>
         <!-- ko foreach: $root.periods -->
-          <th data-bind="text: period" style="text-align: right;"></th>
+          <th data-bind="text: period" class="align_right"></th>
         <!-- /ko -->
       </tr>
     </thead>
@@ -20,16 +20,22 @@
     <tbody>
       <!-- ko foreach: groups -->
         <tr>
-          <td colspan="6">&nbsp;</td>
+          <td colspan="<%= statement_table_columns_number @financial_reports %>">&nbsp;</td>
         </tr>
         <!-- ko foreach: items -->
           <tr>
             <td data-bind="text: name"></td>
             <!-- ko foreach: values -->
-              <td data-bind="text: $data" style="text-align: right;"></td>
+              <td data-bind="text: $data, css: { red: $data < 0 }" class="align_right"></td>
             <!-- /ko -->
           </tr>
         <!-- /ko -->
+        <tr class="bold">
+          <td data-bind="text: last_item.name"></td>
+          <!-- ko foreach: last_item.values -->
+            <td data-bind="text: $data, css: { red: $data < 0 }" class="align_right"></td>
+          <!-- /ko -->
+        </tr>
       <!-- /ko -->
     </tbody>
   </table>

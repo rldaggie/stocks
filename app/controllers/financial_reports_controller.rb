@@ -4,30 +4,17 @@ class FinancialReportsController < ApplicationController
   # GET /financial_reports
   # GET /financial_reports.json
   def index
-    @financial_reports = @company.financial_reports.annual.recent.formatted_hash
-
-    respond_to do |format|
-      format.html 
-      format.json { render json: @financial_reports.formatted_hash }
-    end
+    @financial_reports = @company.financial_reports.annual.recent.include_statements
   end
   
   def annual
-    @financial_reports = @company.financial_reports.annual.recent.include_statements.formatted_hash
-    
-    respond_to do |format|
-      format.html { render action: 'index' }
-      format.json { render json: @financial_reports.formatted_hash }
-    end
+    @financial_reports = @company.financial_reports.annual.recent.include_statements
+    render action: 'index'
   end
   
   def quarterly
-    @financial_reports = @company.financial_reports.quarterly.recent.include_statements.formatted_hash
-    
-    respond_to do |format|
-      format.html { render action: 'index' }
-      format.json { render json: @financial_reports.formatted_hash }
-    end
+    @financial_reports = @company.financial_reports.quarterly.recent.include_statements
+    render action: 'index'
   end
   
   private

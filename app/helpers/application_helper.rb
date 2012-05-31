@@ -29,4 +29,8 @@ module ApplicationHelper
     content_tag :div, capture(&block), class: 'page-header'
   end
   
+  def caret
+    content_tag :span, '', class: 'caret'
+  end
+  
 end

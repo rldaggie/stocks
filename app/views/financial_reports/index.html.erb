@@ -1,9 +1,12 @@
 <%= page_header do %>
-  <%= link_to @company, class: 'btn btn-info pull-right' do %>
-    <%= icon_white 'icon-list-alt' %>
-    Company Details
-  <% end %>
-  <h1>Financial Reports <small><%= @company.name %></small></h1>
+  <div class="btn-group pull-right">
+    <%= link_to @company, class: 'btn btn-info' do %>
+      <%= icon_white 'icon-list-alt' %>
+      Company Details
+    <% end %>
+    <%= other_statements_link(action_name) %>
+  </div><!--// .btn-group pull-right -->
+  <h1><%= action_name.to_s.titleize %> Financial Reports <small><%= @company.name %></small></h1>
 <% end %>
 
 <ul class="nav nav-tabs">
@@ -19,7 +22,7 @@
 </div><!--// .tab-content -->
 
 <%= javascript_tag do %>
-  var statements = <%= raw @financial_reports.to_json %>;
+  var statements = <%= raw @financial_reports.formatted_hash.to_json %>;
   
   $(document).ready(function() {
     $('.nav.nav-tabs a:first').tab('show');

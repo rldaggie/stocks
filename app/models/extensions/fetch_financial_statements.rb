@@ -5,17 +5,17 @@ module Extensions
     include Extensions::FetchScraper
     
     def fetch_financial_statements(period_type, period_ending)
-      the_hash = fetched_financial_statements_hash(period_type, period_ending)
+      the_hash = fetch_financial_statements_hash(period_type, period_ending)
     end
     
-    def fetched_financial_statements_hash(period_type, period_ending)
+    def fetch_financial_statements_hash(period_type, period_ending)
       ['cash_flow_statement', 'balance_sheet', 'income_statement'].inject({}) do |the_hash, the_statement|
-        the_hash[the_statement] = fetched_financial_statement_hash(the_statement, period_type, period_ending)
+        the_hash[the_statement] = fetch_financial_statement_hash(the_statement, period_type, period_ending)
         the_hash
       end
     end
     
-    def fetched_financial_statement_hash(the_statement, period_type, period_ending)
+    def fetch_financial_statement_hash(the_statement, period_type, period_ending)
       url = self.screen_scrape_urls_hash[period_type][the_statement]
       the_class = the_statement.camelize.constantize
       the_index = cell_index_for_period_type(url, period_ending)

@@ -14,4 +14,15 @@ module FinancialReportsHelper
     FinancialReport.statements_array
   end
   
+  def statement_table_columns_number(statements)
+    statements.length + 1
+  end
+  
+  def other_statements_link(the_action)
+    the_period = the_action == 'annual' ? 'quarterly' : 'annual'
+    link_to eval("#{the_period}_company_financial_reports_path(@company)"), class: 'btn' do
+      raw "#{icon 'icon-list'} #{the_period.titleize} Statements"
+    end
+  end
+  
 end
