@@ -3,6 +3,8 @@ module Extensions
     extend ActiveSupport::Concern
     
     included do
+      belongs_to :financial_report
+      
       scope :annual, joins(:financial_report).merge(FinancialReport.annual)
       scope :quarterly, joins(:financial_report).merge(FinancialReport.quarterly)
       scope :recent, limit(5)
