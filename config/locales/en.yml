@@ -2,6 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  financial_report:
+    period_ending: "Period Ending"
   cash_flow_statement:
     operating_net_income: 
       name: "Net Income/Starting Line"
