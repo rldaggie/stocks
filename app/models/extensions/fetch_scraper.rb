@@ -22,7 +22,7 @@ module Extensions
       end
     end
     
-    def cell_index_for_period_type(doc, period_ending)
+    def cell_index_for_period_ending(doc, period_ending)
       cell_values_from_row(doc, period_dom_id).index(period_ending)
     end
     

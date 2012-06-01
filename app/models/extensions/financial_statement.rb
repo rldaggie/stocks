@@ -6,7 +6,6 @@ module Extensions
       scope :annual, joins(:financial_report).merge(FinancialReport.annual)
       scope :quarterly, joins(:financial_report).merge(FinancialReport.quarterly)
       scope :recent, limit(5)
-      scope :financial_report_ids, lambda { |ids_array| where(:financial_report_id => ids_array) }
     end
     
     module ClassMethods

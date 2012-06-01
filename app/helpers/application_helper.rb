@@ -5,9 +5,9 @@ module ApplicationHelper
   end
   
   def nav_item(the_controller, &block)
-    the_class = 'active' if controller.is_a?(the_controller)
+    css_class = 'active' if controller.is_a?(the_controller)
     
-    content_tag :li, class: the_class do
+    content_tag :li, class: css_class do
       capture(&block)
     end
   end
