@@ -14,9 +14,7 @@ module Extensions
       if the_parent
         table_cells = the_parent.css('td')
         table_cells.shift unless include_first_cell
-        table_cells.map do |table_cell|
-          table_cell.content.strip
-        end
+        table_cells.map { |c| c.content.strip }
       else
         6.times.map {|i| nil}
       end
@@ -27,21 +25,15 @@ module Extensions
     end
     
     def line_items_hash_for_statement(doc, the_class, the_index)
-      dom_hash = the_class.dom_hash
-      methods_array = the_class.all_items_keys
-      methods_array.inject({}) do |the_hash, the_method|
-        dom_id = "##{dom_hash[the_method]}"
-        the_hash[the_method] = formatted_cell_value(cell_value_from_row_and_index(doc, dom_id, the_index))
+      the_class.all_items_keys.inject({}) do |the_hash, the_method|
+        dom_id = "##{the_class.dom_id_for_item(the_method)}"
+        the_hash[the_method] = formatted_cell_value(cell_values_from_row(doc, dom_id)[the_index])
         the_hash
       end
     end
     
     def formatted_cell_value(cell)
       cell.gsub(/,/, '').to_f if cell
-    end
-    
-    def cell_value_from_row_and_index(doc, dom_id, index)
-      cell_values_from_row(doc, dom_id)[index]
     end
     
     def period_dom_id

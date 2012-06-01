@@ -3,11 +3,7 @@ module Extensions
     extend ActiveSupport::Concern
     
     include Extensions::FetchScraper
-    
-    def fetch_financial_statements(period_type, period_ending, doc_hash)
-      the_hash = fetch_financial_statements_hash(period_type, period_ending, doc_hash)
-    end
-    
+        
     def fetch_financial_statements_hash(period_type, period_ending, doc_hash)
       FinancialReport.statements_array.inject({}) do |the_hash, the_statement|
         the_statement = the_statement.to_s

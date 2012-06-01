@@ -34,4 +34,4 @@
   <h1><%= @company.name %> <small><%= @company.ticker.upcase %></small></h1>
 <% end %>
 
-<p>Nothing to show...yet</p>
+<%= @company.fetch_financial_reports %>

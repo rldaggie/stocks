@@ -10,7 +10,7 @@ module Extensions
     end
     
     def fetch_financial_reports
-      doc_hash = screen_scrape_doc_hash
+      doc_hash = screen_scrape_doc_hash      
       FinancialReport::PERIOD_TYPES.inject([]) do |the_array, period_type|
         fetch_periods_array_for_period_type(period_type, doc_hash).uniq.each do |period_ending|
           the_array << hash_for_period(period_type, period_ending, doc_hash)
@@ -25,7 +25,7 @@ module Extensions
       {
         :period_type => period_type,
         :period_ending => period_ending,
-        :financial_statements => fetch_financial_statements(period_type, period_ending, doc_hash)
+        :financial_statements => fetch_financial_statements_hash(period_type, period_ending, doc_hash)
       }
     end
     
@@ -40,9 +40,8 @@ module Extensions
     end
         
     def fetch_periods_array_for_period_type(period_type, doc_hash)
-      doc_hash[period_type].values.inject([]) do |the_array, doc|
-        the_array << fetch_periods_array_for_doc(doc)
-        the_array
+      doc_hash[period_type].values.map do |doc|
+        fetch_periods_array_for_doc(doc)
       end.flatten
     end
     
