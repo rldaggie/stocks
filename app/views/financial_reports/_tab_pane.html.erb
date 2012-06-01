@@ -12,7 +12,7 @@
       <tr>
         <th><%= t 'financial_report.period_ending' %></th>
         <!-- ko foreach: $root.periods -->
-          <th data-bind="text: period" class="align_right"></th>
+          <th data-bind="text: $data" class="align_right"></th>
         <!-- /ko -->
       </tr>
     </thead>
