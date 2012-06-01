@@ -18,20 +18,7 @@ module Extensions
           the_array
         end.flatten
       end
-            
-      # PRESENTER
-      def formatted_hash
-        formatted_hash_from_array(all)
-      end
-      
-      def formatted_hash_from_array(statements)
-        {
-          :periods => periods_from_statements(statements),
-          :groups => modified_all_items_hash(statements)
-        }
-      end
-      # END PRESENTER
-      
+                  
       # TRANSLATION CONCERNS
       def name_for_item(item)
         translation_for_item(item, 'name')
@@ -44,28 +31,7 @@ module Extensions
       def translation_for_item(item, key)
         I18n.t("#{self.to_s.underscore}.#{item}.#{key}")
       end
-      # END TRANSLATION CONCERNS
-      
-      private
-      
-      def modified_all_items_hash(statements)
-        all_items_hash.each do |group|
-          group[:items] = modified_group_items(group[:items], statements)
-        end
-      end
-      
-      def modified_group_items(items, statements)
-        items.map do |item|
-          {
-            :item_key => name_for_item(item),
-            :values => statements.map { |s| s[item] }
-          }
-        end
-      end
-      
-      def periods_from_statements(statements)
-        statements.map { |s| s.period_ending.strftime("%m/%d/%Y") }
-      end
+      # END TRANSLATION CONCERNS      
     end
   end
 end

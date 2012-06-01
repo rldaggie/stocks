@@ -23,14 +23,5 @@ class FinancialReport < ActiveRecord::Base
     def statements_array
       [:income_statement, :balance_sheet, :cash_flow_statement]
     end
-    
-    def formatted_hash
-      statements_array.inject({}) do |the_hash, statement|
-        statements = eval("all.map { |fr| fr.#{statement.to_s} }")
-        the_class = statement.to_s.camelize.constantize
-        the_hash[statement] = {:statement_key => statement, :statement => the_class.formatted_hash_from_array(statements)}
-        the_hash
-      end
-    end
   end
 end

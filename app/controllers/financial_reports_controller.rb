@@ -8,18 +8,18 @@ class FinancialReportsController < ApplicationController
   end
   
   def annual
-    @financial_reports = @company.financial_reports.annual.recent.include_statements
+    @financial_reports = @company.financial_reports_table_hash('annual')
     render action: 'index'
   end
   
   def quarterly
-    @financial_reports = @company.financial_reports.quarterly.recent.include_statements
+    @financial_reports = @company.financial_reports_table_hash('quarterly')
     render action: 'index'
   end
   
   private
   
   def get_company
-    @company = Company.find_by_ticker(params[:company_id])
+    @company = CompanyDecorator.find_by_ticker(params[:company_id])
   end
 end

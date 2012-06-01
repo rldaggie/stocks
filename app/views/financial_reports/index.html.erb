@@ -22,7 +22,7 @@
 </div><!--// .tab-content -->
 
 <%= javascript_tag do %>
-  var statements = <%= raw @financial_reports.formatted_hash.to_json %>;
+  var statements = <%= raw @financial_reports.to_json %>;
   
   $(document).ready(function() {
     $('.nav.nav-tabs a:first').tab('show');
