@@ -1,14 +1,5 @@
 <%= page_header do %>
-  <div class="btn-group pull-right">
-    <%= link_to @company, class: 'btn' do %>
-      <%= icon 'icon-info-sign' %>
-      <%= @company.name %> Details
-    <% end %>
-    <%= link_to companies_path, class: 'btn' do %>
-      <%= icon 'icon-th-list' %>
-      All Companies
-    <% end %>
-  </div><!--// .btn-group -->
+  <%= render 'company_nav' %>
   
   <h1>Editing company</h1>
 <% end %>

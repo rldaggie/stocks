@@ -4,11 +4,11 @@ module ApplicationHelper
     content_tag :button, 'x', :class => 'close', 'data-dismiss' => 'alert'
   end
   
-  def nav_item(the_controller, &block)
-    css_class = 'active' if controller.is_a?(the_controller)
+  def nav_item(text, path, &block)
+    css_class = 'active' if current_page?(path)
     
     content_tag :li, class: css_class do
-      capture(&block)
+      link_to text, path
     end
   end
   
@@ -31,6 +31,13 @@ module ApplicationHelper
   
   def caret
     content_tag :span, '', class: 'caret'
+  end
+  
+  def dropdown_toggle(text)
+    link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+      concat text
+      concat caret
+    end
   end
   
 end

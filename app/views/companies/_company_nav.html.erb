@@ -1,0 +1,12 @@
+<div class="pull-right">
+  <ul class="nav nav-pills">
+    <%= nav_item 'Edit Company', edit_company_path(@company) %>
+    <li class="dropdown">
+      <%= dropdown_toggle('Financial Reports') %>
+      <ul class="dropdown-menu">
+        <%= nav_item 'Annual', annual_company_financial_reports_path(@company) %>
+        <%= nav_item 'Quarterly', quarterly_company_financial_reports_path(@company) %>
+      </ul>
+    </li>
+  </ul>
+</div><!--// .pull-right -->
