@@ -15,3 +15,5 @@
 //= require bootstrap
 //= require knockout-2.1.0
 //= require financial_reports
+//= require companies
+

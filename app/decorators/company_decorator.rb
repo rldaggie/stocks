@@ -3,7 +3,7 @@ class CompanyDecorator < Draper::Base
   
   # CREATING TABLE FOR /companies/:id/financial_reports
   def financial_reports_table_hash(period_type)
-    financial_reports = eval("model.financial_reports.recent.#{period_type}.include_statements")
+    financial_reports = get_financial_reports(period_type)
     FinancialReport.statements_array.inject({}) do |the_hash, statement|
       the_hash[statement] = financial_statement_table_hash(statement, financial_reports)
       the_hash
@@ -41,4 +41,10 @@ class CompanyDecorator < Draper::Base
     financial_reports.map { |fr| fr.period_ending.strftime("%m/%d/%Y") }
   end
   # END TABLE
+  
+  private
+  
+  def get_financial_reports(period_type)
+    eval("model.financial_reports.recent.#{period_type}.include_statements")
+  end
 end

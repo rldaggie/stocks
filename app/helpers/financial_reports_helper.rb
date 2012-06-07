@@ -15,7 +15,7 @@ module FinancialReportsHelper
   end
   
   def statement_table_columns_number(statements)
-    statements.length + 1
+    6
   end
   
   def other_statements_link(the_action)

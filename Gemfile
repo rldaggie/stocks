@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'nokogiri'
 gem 'simple_form'
 gem 'draper'
+gem 'resque', :require => 'resque/server'
+gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

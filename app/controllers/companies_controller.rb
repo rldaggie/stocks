@@ -1,6 +1,5 @@
 class CompaniesController < ApplicationController
-  # GET /companies
-  # GET /companies.json
+
   def index
     @companies = Company.all
 
@@ -10,8 +9,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # GET /companies/1
-  # GET /companies/1.json
   def show
     @company = Company.find_by_ticker(params[:id])
 
@@ -20,9 +17,7 @@ class CompaniesController < ApplicationController
       format.json { render json: @company }
     end
   end
-
-  # GET /companies/new
-  # GET /companies/new.json
+  
   def new
     @company = Company.new
 
@@ -32,13 +27,10 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # GET /companies/1/edit
   def edit
     @company = Company.find_by_ticker(params[:id])
   end
 
-  # POST /companies
-  # POST /companies.json
   def create
     @company = Company.new(params[:company])
 
@@ -53,8 +45,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # PUT /companies/1
-  # PUT /companies/1.json
   def update
     @company = Company.find_by_ticker(params[:id])
 
@@ -69,8 +59,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # DELETE /companies/1
-  # DELETE /companies/1.json
   def destroy
     @company = Company.find_by_ticker(params[:id])
     @company.destroy

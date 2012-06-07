@@ -6,6 +6,7 @@ module Extensions
     
     def fetch_company_details
       fetch_name
+      save
     end
     
     def fetch_name
