@@ -17,7 +17,7 @@ class Company < ActiveRecord::Base
   
   attr_accessible :ticker, :name
   
-  validates :ticker, :presence => true
+  validates :ticker, :presence => true, :uniqueness => true
   
   include Extensions::FetchCompanyDetails
   include Extensions::FetchFinancialReports

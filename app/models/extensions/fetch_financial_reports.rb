@@ -23,10 +23,18 @@ module Extensions
     
     def hash_for_period(period_type, period_ending, doc_hash)
       {
-        :period_type => period_type,
+        :period_type => fetch_quarter_for_period_type(period_type, period_ending, doc_hash),
         :period_ending => period_ending,
         :financial_statements => fetch_financial_statements_hash(period_type, period_ending, doc_hash)
       }
+    end
+    
+    def fetch_quarter_for_period_type(period_type, period_ending, doc_hash)
+      return period_type if period_type == 'annual'
+      doc = doc_hash[period_type]['income_statement']
+      cell_index = cell_index_for_period_ending(doc, period_ending)
+      cell = cell_values_from_row(doc, '.mnfirsttd')[cell_index]
+      cell ? cell.split(' ').last : period_type
     end
     
     def screen_scrape_doc_hash

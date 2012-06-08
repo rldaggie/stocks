@@ -21,7 +21,7 @@ class FinancialReport < ActiveRecord::Base
   
   default_scope order('financial_reports.period_ending DESC')
   scope :annual, where(:period_type => 'annual')
-  scope :quarterly, where(:period_type => 'quarterly')
+  scope :quarterly, where(:period_type => ['Q1', 'Q2', 'Q3', 'Q4'])
   scope :include_statements, includes(:income_statement, :balance_sheet, :cash_flow_statement)
   scope :recent, limit(5)
   
