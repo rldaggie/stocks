@@ -5,13 +5,12 @@ module FinancialReportsHelper
   end
   
   def statement_tab_link(statement)
-    string_statement = statement.to_s
-    text = string_statement.humanize.pluralize.titleize
-    link_to text, "##{string_statement}", data: {toggle: 'tab'}
+    text = statement.humanize.pluralize.titleize
+    link_to text, "##{statement}", data: {toggle: 'tab'}
   end
   
   def statements_array
-    FinancialReport.statements_array
+    FinancialReport.statements_array.map { |s| s.to_s }
   end
   
   def other_statements_link(the_action)

@@ -12,7 +12,7 @@
 
 <div class="tab-content">
   <% statements_array.each do |statement| %>
-    <%= render 'tab_pane', dom_id: statement.to_s, colspan: @financial_reports[statement][:colspan] %>
+    <%= render 'tab_pane', dom_id: statement, colspan: @financial_reports[statement.to_sym][:colspan] %>
   <% end %>
 </div><!--// .tab-content -->
 
@@ -23,7 +23,7 @@
     $('.nav.nav-tabs a:first').tab('show');
     
     <% statements_array.each do |statement| %>
-      ko.applyBindings(new FinancialReportTable(statements.<%= statement.to_s %>), $('#<%= statement.to_s %>')[0]);
+      ko.applyBindings(new FinancialReportTable(statements.<%= statement %>), $('#<%= statement %>')[0]);
     <% end %>
   });
 <% end %>
