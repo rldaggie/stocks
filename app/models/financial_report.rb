@@ -39,6 +39,10 @@ class FinancialReport < ActiveRecord::Base
     end
   end
   
+  def previous_report
+    self.class.where(:company_id => company_id, :period_type => period_type).where('financial_reports.period_ending < ?', period_ending).first
+  end
+  
   # ANNUAL VS QUARTERLY
   def is_annual?
     period_type == 'annual'
