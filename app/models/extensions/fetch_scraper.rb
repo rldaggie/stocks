@@ -16,7 +16,7 @@ module Extensions
         table_cells.shift unless include_first_cell
         table_cells.map { |c| c.content.strip }
       else
-        6.times.map {|i| nil}
+        6.times.map { nil }
       end
     end
     

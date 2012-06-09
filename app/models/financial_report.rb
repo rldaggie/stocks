@@ -17,11 +17,14 @@ class FinancialReport < ActiveRecord::Base
   has_one :balance_sheet
   has_one :income_statement
   
+  PERIOD_TYPES = ['annual', 'quarterly']
+  QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4']
+  
   include Extensions::FinancialReportCreateFromFetch
   
   default_scope order('financial_reports.period_ending DESC')
   scope :annual, where(:period_type => 'annual')
-  scope :quarterly, where(:period_type => ['Q1', 'Q2', 'Q3', 'Q4'])
+  scope :quarterly, where(:period_type => FinancialReport::QUARTERS)
   scope :include_statements, includes(:income_statement, :balance_sheet, :cash_flow_statement)
   scope :recent, limit(5)
   
@@ -29,8 +32,6 @@ class FinancialReport < ActiveRecord::Base
   
   validates :period_type,   :presence => true
   validates :period_ending, :presence => true
-  
-  PERIOD_TYPES = ['annual', 'quarterly']
   
   class << self
     def statements_array
@@ -44,7 +45,7 @@ class FinancialReport < ActiveRecord::Base
   end
   
   def is_quarterly?
-    ['Q1', 'Q2', 'Q3', 'Q4'].include?(period_type)
+    FinancialReport::QUARTERS.include?(period_type)
   end
   # END ANNUAL VS QUARTERLY
 end

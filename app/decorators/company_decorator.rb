@@ -13,7 +13,8 @@ class CompanyDecorator < Draper::Base
   def financial_statement_table_hash(statement, financial_reports)
     statements = financial_reports.map { |fr| eval("fr.#{statement.to_s}") }
     {
-      :statement_key => statement, 
+      :statement_key => statement,
+      :colspan => financial_reports.length + 1,
       :statement => {
         :periods => periods_from_financial_reports(financial_reports),
         :groups => financial_statement_table_groups_array(statement, statements)

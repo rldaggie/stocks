@@ -12,7 +12,7 @@
 
 <div class="tab-content">
   <% statements_array.each do |statement| %>
-    <%= render 'tab_pane', dom_id: statement.to_s %>
+    <%= render 'tab_pane', dom_id: statement.to_s, colspan: @financial_reports[statement][:colspan] %>
   <% end %>
 </div><!--// .tab-content -->
 

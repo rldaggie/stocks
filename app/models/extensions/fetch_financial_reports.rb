@@ -34,7 +34,7 @@ module Extensions
       doc = doc_hash[period_type]['income_statement']
       cell_index = cell_index_for_period_ending(doc, period_ending)
       cell = cell_values_from_row(doc, '.mnfirsttd')[cell_index]
-      cell ? cell.split(' ').last : period_type
+      cell ? cell.split(' ').last.try(:upcase) : period_type
     end
     
     def screen_scrape_doc_hash
