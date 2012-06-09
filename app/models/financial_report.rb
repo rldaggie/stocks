@@ -37,4 +37,14 @@ class FinancialReport < ActiveRecord::Base
       [:income_statement, :balance_sheet, :cash_flow_statement]
     end
   end
+  
+  # ANNUAL VS QUARTERLY
+  def is_annual?
+    period_type == 'annual'
+  end
+  
+  def is_quarterly?
+    ['Q1', 'Q2', 'Q3', 'Q4'].include?(period_type)
+  end
+  # END ANNUAL VS QUARTERLY
 end
