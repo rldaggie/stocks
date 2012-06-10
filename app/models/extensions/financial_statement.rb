@@ -33,5 +33,21 @@ module Extensions
       end
       # END TRANSLATION CONCERNS      
     end
+    
+    # GROWTH RATE CALCULATIONS
+    def calculate_growth_rates_from_statement!(previous_statement)
+      self.class.all_items_keys.each do |the_method|
+        growth_method = "#{the_method.to_s}_growth".to_sym
+        self[growth_method] = growth_rate_for_line_items(self[the_method], previous_statement[the_method])
+      end
+      save
+    end
+    
+    def growth_rate_for_line_items(current, previous)
+      return nil unless current && previous
+      return nil if previous == 0
+      (current - previous) / previous
+    end
+    # END GROWTH RATE CALCULATIONS
   end
 end

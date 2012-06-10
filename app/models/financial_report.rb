@@ -39,9 +39,22 @@ class FinancialReport < ActiveRecord::Base
     end
   end
   
+  # GROWTH RATE CALCULATIONS
   def previous_report
-    self.class.where(:company_id => company_id, :period_type => period_type).where('financial_reports.period_ending < ?', period_ending).first
+    attrs = self.attributes
+    self.class.where{(company_id == attrs['company_id']) & (period_type == attrs['period_type']) & (period_ending < attrs['period_ending'])}.include_statements.first
   end
+  
+  def calculate_growth_rates_for_statements!
+    pr = previous_report
+    return nil unless pr
+    FinancialReport.statements_array.each do |statement|
+      the_statement = eval "#{statement.to_s}"
+      previous_statement = eval "pr.#{statement.to_s}"
+      the_statement.calculate_growth_rates_from_statement!(previous_statement)
+    end
+  end
+  # END GROWTH RATE CALCULATIONS
   
   # ANNUAL VS QUARTERLY
   def is_annual?
