@@ -45,8 +45,8 @@ module Extensions
     
     def growth_rate_for_line_items(current, previous)
       return nil unless current && previous
-      return nil if previous == 0
-      (current - previous) / previous
+      return nil if previous == 0 || previous < 0
+      (current - previous) / previous * 100
     end
     # END GROWTH RATE CALCULATIONS
   end

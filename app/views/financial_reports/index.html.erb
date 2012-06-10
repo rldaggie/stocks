@@ -10,6 +10,17 @@
   <% end %>
 </ul>
 
+<div class="row">
+  <div class="span4 offset8">
+    <div class="btn-group pull-right" id="toggle_row_buttons" data-toggle="buttons-radio">
+      <button class="btn btn-info active" data-row="value_row">Show Values</button>
+      <button class="btn btn-info" data-row="all">Show Growth Rates</button>
+    </div><!--// .btn-group -->
+    <br />
+    <br />
+  </div><!--// .span4 offset8 -->
+</div><!--// .row -->
+
 <div class="tab-content">
   <% statements_array.each do |statement| %>
     <%= render 'tab_pane', dom_id: statement, colspan: @financial_reports[statement.to_sym][:colspan] %>
@@ -25,5 +36,7 @@
     <% statements_array.each do |statement| %>
       ko.applyBindings(new FinancialReportTable(statements.<%= statement %>), $('#<%= statement %>')[0]);
     <% end %>
+    
+    ToggleFinancialReportTableRows.init();
   });
 <% end %>

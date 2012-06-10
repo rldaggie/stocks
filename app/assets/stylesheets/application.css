@@ -18,7 +18,11 @@ body {
 }
 
 .red {
-  color: red;
+  color: red !important;
+}
+
+.orange {
+  color: orange !important;
 }
 
 .align_right {
@@ -27,4 +31,9 @@ body {
 
 tr.bold td {
   font-weight: bold !important;
+}
+
+tr.growth_row td {
+  font-style: italic;
+  color: #777;
 }

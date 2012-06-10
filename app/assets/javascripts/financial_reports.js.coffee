@@ -6,6 +6,8 @@ class Item
   constructor: (@item) ->
     @name = @item.item_key
     @values = ko.observableArray @item.values
+    @growth_name = @item.growth_key
+    @growth_values = @item.growth_values
     
 
 class Group
@@ -32,3 +34,21 @@ class window.FinancialReportTable
     mappedGroups = $.map @data.statement.groups, (group) ->
       new Group group
     @groups mappedGroups
+    
+window.ToggleFinancialReportTableRows = 
+  init: ->
+    @buttons = $('#toggle_row_buttons button')
+    @active_button = $('#toggle_row_buttons button.active')
+    @all_rows = $('table.financial_statements tbody tr.toggle_row')
+    this.toggleRows()
+    
+  toggleRows: ->
+    that = this
+    @buttons.on 'click', ->
+      showClass = $(this).data 'row'
+      if showClass == 'all'
+        that.all_rows.show()
+      else
+        that.all_rows.hide().each ->
+          $(this).show() if $(this).hasClass showClass
+    @active_button.trigger 'click'

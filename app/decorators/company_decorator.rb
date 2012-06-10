@@ -34,8 +34,23 @@ class CompanyDecorator < Draper::Base
       {
         :item_key => the_class.name_for_item(item),
         :values => statements.map { |s| s[item] }
-      }
+      }.merge(growth_hash_for_item(item, statements, the_class.name_for_item(item)))
     end
+  end
+  
+  def growth_hash_for_item(item, statements, item_name)
+    growth_item = "#{item.to_s}_growth".to_sym
+    {
+      :growth_key => "#{item_name} Growth",
+      :growth_values => statements.map { |s| hash_for_growth_value(s[growth_item]) }
+    }
+  end
+  
+  def hash_for_growth_value(growth_value)
+    {
+      :value => growth_value || 0,
+      :percentage => h.number_to_percentage(growth_value) || 'N/A'
+    }
   end
   
   def periods_from_financial_reports(financial_reports)
