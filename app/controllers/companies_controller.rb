@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.all
+    @companies = Company.order(:ticker).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

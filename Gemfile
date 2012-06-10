@@ -12,6 +12,7 @@ gem 'draper'
 gem 'resque', :require => 'resque/server'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'squeel'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.
