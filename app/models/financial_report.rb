@@ -26,6 +26,7 @@ class FinancialReport < ActiveRecord::Base
   scope :annual, where(:period_type => 'annual')
   scope :quarterly, where(:period_type => FinancialReport::QUARTERS)
   scope :include_statements, includes(:income_statement, :balance_sheet, :cash_flow_statement)
+  scope :recent_company, select{[max(period_ending).as(period_ending), period_type, company_id, id]}.group(:company_id)
   scope :recent, limit(5)
   
   attr_accessible :company_id, :period_ending, :period_type, :sec_filing_url
