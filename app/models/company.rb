@@ -30,6 +30,10 @@ class Company < ActiveRecord::Base
     Resque.enqueue(FinancialReportsFetcher, id)
   end
   
+  def ticker=(ticker)
+    write_attribute(:ticker, ticker.downcase)
+  end
+  
   def to_param
     ticker
   end
