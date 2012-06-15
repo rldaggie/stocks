@@ -39,6 +39,15 @@ class FinancialReport < ActiveRecord::Base
     end
   end
   
+  def calculate_inventory_turnover!
+    revenue_total = income_statement.revenue_total
+    assets_current_inventory = balance_sheet.assets_current_inventory
+    return nil unless revenue_total && assets_current_inventory
+    return nil unless assets_current_inventory > 0
+    self.inventory_turnover = revenue_total / assets_current_inventory
+    save
+  end
+  
   # GROWTH RATE CALCULATIONS
   def previous_report
     attrs = self.attributes

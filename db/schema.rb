@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609132458) do
+ActiveRecord::Schema.define(:version => 20120615174151) do
 
   create_table "balance_sheets", :force => true do |t|
     t.integer  "financial_report_id"
@@ -159,8 +159,9 @@ ActiveRecord::Schema.define(:version => 20120609132458) do
     t.date     "period_ending"
     t.integer  "company_id"
     t.string   "sec_filing_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.float    "inventory_turnover"
   end
 
   add_index "financial_reports", ["company_id"], :name => "index_financial_reports_on_company_id"

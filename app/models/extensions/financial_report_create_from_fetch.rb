@@ -21,6 +21,7 @@ module Extensions
       the_hash.each do |key, value|
         eval("create_#{key.to_s}(value)")
       end
+      calculate_inventory_turnover!
     end
   end
 end
