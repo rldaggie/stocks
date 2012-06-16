@@ -74,10 +74,8 @@ Stocks::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 end
 #== Route Map
-# Generated on 04 Jun 2012 17:41
+# Generated on 16 Jun 2012 12:59
 #
-#                  line_chart_company GET    /companies/:id/line_chart(.:format)                            companies#line_chart
-#    annual_company_financial_reports GET    /companies/:company_id/financial_reports/annual(.:format)      financial_reports#annual
 # quarterly_company_financial_reports GET    /companies/:company_id/financial_reports/quarterly(.:format)   financial_reports#quarterly
 #           company_financial_reports GET    /companies/:company_id/financial_reports(.:format)             financial_reports#index
 #                                     POST   /companies/:company_id/financial_reports(.:format)             financial_reports#create
