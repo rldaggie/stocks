@@ -84,6 +84,7 @@
 #  liabilities_and_equity_total_growth                   :float
 #  shares_common_outstanding_growth                      :float
 #  shares_preferred_outstanding_growth                   :float
+#  asset_quality_ratio                                   :float
 #
 
 require 'test_helper'

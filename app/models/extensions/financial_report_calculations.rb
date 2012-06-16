@@ -14,6 +14,7 @@ module Extensions
       calculate_inventory_turnover
       calculate_days_sales_in_receivables
       income_statement.try(:calculate_gross_margin!)
+      balance_sheet.try(:calculate_asset_quality_ratio!)
       save
     end
     

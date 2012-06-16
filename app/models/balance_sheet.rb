@@ -172,4 +172,48 @@ class BalanceSheet < ActiveRecord::Base
       ]
     end
   end
+  
+  def calculate_asset_quality_ratio!
+    non_current_assets = calculate_non_current_assets_total - (assets_other_property_plant_equipment || 0)
+    total_assets = calculate_all_assets_total
+    return nil unless FinancialReport.is_divisible?(non_current_assets, total_assets)
+    self.asset_quality_ratio = non_current_assets / total_assets
+    save
+  end
+  
+  def calculate_non_current_assets_total
+    sum_from_items(non_current_assets_array)
+  end
+  
+  def calculate_current_assets_total
+    return assets_current_total if assets_current_total
+    sum_from_items(current_assets_array)
+  end
+  
+  def calculate_all_assets_total
+    return assets_total if assets_total
+    calculate_non_current_assets_total + calculate_current_assets_total
+  end
+  
+  def non_current_assets_array
+    [
+      :assets_other_property_plant_equipment,
+      :assets_other_goodwill,
+      :assets_other_intangibles,
+      :assets_other_long_term_investments,
+      :assets_other_receivables,
+      :assets_other_misc,
+      :assets_other_total
+    ]
+  end
+  
+  def current_assets_array
+    [
+      :assets_current_cash_and_short_term_investments,
+      :assets_current_receivables,
+      :assets_current_inventory,
+      :assets_current_prepaid_expenses,
+      :assets_current_other
+    ]
+  end
 end

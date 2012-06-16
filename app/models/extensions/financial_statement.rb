@@ -48,5 +48,13 @@ module Extensions
       (current - previous) / previous * 100
     end
     # END GROWTH RATE CALCULATIONS
+    
+    def sum_from_items(items)
+      items.inject(0) do |sum, item|
+        the_item = self[item] || 0
+        sum = sum + the_item
+        sum
+      end
+    end
   end
 end

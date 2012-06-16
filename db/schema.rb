@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616184945) do
+ActiveRecord::Schema.define(:version => 20120616195808) do
 
   create_table "balance_sheets", :force => true do |t|
     t.integer  "financial_report_id"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20120616184945) do
     t.float    "liabilities_and_equity_total_growth"
     t.float    "shares_common_outstanding_growth"
     t.float    "shares_preferred_outstanding_growth"
+    t.float    "asset_quality_ratio"
   end
 
   add_index "balance_sheets", ["financial_report_id"], :name => "index_balance_sheets_on_financial_report_id"
