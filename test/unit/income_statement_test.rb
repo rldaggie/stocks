@@ -56,6 +56,7 @@
 #  extra_items_growth                          :float
 #  income_net_growth                           :float
 #  adjustment_to_net_income_growth             :float
+#  gross_margin                                :float
 #
 
 require 'test_helper'

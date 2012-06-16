@@ -13,6 +13,7 @@ module Extensions
     def calculate_ratios!
       calculate_inventory_turnover
       calculate_days_sales_in_receivables
+      income_statement.try(:calculate_gross_margin!)
       save
     end
     

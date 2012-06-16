@@ -56,6 +56,7 @@
 #  extra_items_growth                          :float
 #  income_net_growth                           :float
 #  adjustment_to_net_income_growth             :float
+#  gross_margin                                :float
 #
 
 class IncomeStatement < ActiveRecord::Base
@@ -134,5 +135,11 @@ class IncomeStatement < ActiveRecord::Base
         }
       ]
     end
+  end
+  
+  def calculate_gross_margin!
+    return nil unless FinancialReport.is_divisible?(revenue_total, cost_of_revenue)
+    self.gross_margin = (revenue_total - cost_of_revenue) / revenue_total * 100
+    save
   end
 end
