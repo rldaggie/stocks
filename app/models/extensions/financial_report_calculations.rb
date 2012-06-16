@@ -17,8 +17,8 @@ module Extensions
     end
     
     def calculate_inventory_turnover
-      revenue_total = income_statement.revenue_total
-      assets_current_inventory = balance_sheet.assets_current_inventory
+      revenue_total = income_statement.try(:revenue_total)
+      assets_current_inventory = balance_sheet.try(:assets_current_inventory)
       return nil unless FinancialReport.is_divisible?(revenue_total, assets_current_inventory)
       self.inventory_turnover = revenue_total / assets_current_inventory
     end
@@ -28,7 +28,7 @@ module Extensions
       assets_current_receivables = balance_sheet.try(:assets_current_receivables)
       return nil unless FinancialReport.is_divisible?(revenue_total, assets_current_receivables)
       days = is_annual? ? 365 : 91
-      self.days_sales_in_receivables = days / revenue_total / assets_current_receivables
+      self.days_sales_in_receivables = days / (revenue_total / assets_current_receivables)
     end
     
     def is_annual?
