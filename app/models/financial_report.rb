@@ -70,14 +70,4 @@ class FinancialReport < ActiveRecord::Base
     end
   end
   # END GROWTH RATE CALCULATIONS
-  
-  # ANNUAL VS QUARTERLY
-  def is_annual?
-    period_type == 'annual'
-  end
-  
-  def is_quarterly?
-    FinancialReport::QUARTERS.include?(period_type)
-  end
-  # END ANNUAL VS QUARTERLY
 end
