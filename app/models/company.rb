@@ -15,7 +15,7 @@ class Company < ActiveRecord::Base
   has_many :balance_sheets, :through => :financial_reports
   has_many :income_statements, :through => :financial_reports
   
-  attr_accessible :ticker, :name
+  attr_accessible :ticker, :name, :cik_number
   
   validates :ticker, :presence => true, :uniqueness => true
   

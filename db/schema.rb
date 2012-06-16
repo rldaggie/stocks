@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615174151) do
+ActiveRecord::Schema.define(:version => 20120616020104) do
 
   create_table "balance_sheets", :force => true do |t|
     t.integer  "financial_report_id"
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20120615174151) do
     t.string   "ticker"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "cik_number"
   end
 
   add_index "companies", ["ticker"], :name => "index_companies_on_ticker"

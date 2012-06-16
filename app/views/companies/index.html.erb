@@ -7,12 +7,14 @@
   <tr>
     <th>Name</th>
     <th>Ticker</th>
+    <th>Actions</th>
   </tr>
 
 <% @companies.each do |company| %>
   <tr>
     <td><%= link_to company.name, company %></td>
     <td><%= company.ticker %></td>
+    <td><%= link_to 'Add CIK Number', edit_company_path(company), class: 'btn' unless company.cik_number %></td>
   </tr>
 <% end %>
 </table>
